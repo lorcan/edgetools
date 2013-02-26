@@ -4,7 +4,7 @@ progname=$0
 verbose=no
 
 function usage () {
-   cat <<EOF
+  cat <<EOF
 Processes a directory of edgelists and replaces the separator charactor with a comma. This is done in a dumb fashion.
 Usage: $progname [-v] separator directory
    -v   executes and prints out verbose messages
@@ -16,11 +16,11 @@ EOF
 while getopts ":vhn:" optname; do
   case "$optname" in
     v)
-          verbose=yes
-          ;;
+      verbose=yes
+      ;;
     h)
-          usage
-          ;;
+      usage
+      ;;
     ?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
@@ -38,10 +38,9 @@ done
 
 shift $(($OPTIND - 1))
 
-if [ $# -ne 2 ]
-then
-        echo "Expected two arguments. Got $#"
-        usage
+if [ $# -ne 2 ]; then
+  echo "Expected two arguments. Got $#"
+  usage
 fi
 
 SEPARATOR=$1
@@ -50,5 +49,5 @@ DIRECTORY=$2
 for file in $DIRECTORY/*
 do
   echo "Converting $file"
-  nice sed "s/$SEPARATOR/,/g" $file >> $file.csv &
+  nice sed "s/$SEPARATOR/,/g" $file >> $file.csv
 done
