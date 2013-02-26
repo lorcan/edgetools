@@ -16,7 +16,7 @@ If your edgelist file is delineated in anything other than commas consider using
 ```bash
 sed "s/$SEPARATOR/,/g" $file >> $file.csv
 ```
-To change the delineation of all files in a directory you could use the [replaceSeparator.sh]() bash script; usage as follows:
+To change the delineation of all files in a directory you could use the [replaceSeparator.sh](replaceSeparator.sh) bash script; usage as follows:
 ```bash
 replaceSeparator.sh [-v] separator directory
 ```
@@ -29,7 +29,7 @@ To sort a CSV file consider using the following script, replacing `$file` with t
 ```bash
 sort -t, -k1,1 -k2,2 $file -o $file
 ```
-To sort all CSV files in a directory you could use the [sortAllCSV.sh]() bash script; usage as follows:
+To sort all CSV files in a directory you could use the [sortAllCSV.sh](sortAllCSV.sh) bash script; usage as follows:
 ```
 sortAllCSV.sh [-v] directory
 ```
@@ -51,13 +51,13 @@ cait,barbara
 dom,alan
 ```
 
-In order to produce an adjacency list from a directory containing edgelists use the [generateAdjacencyFile.sh]() bash script:
+In order to produce an adjacency list from a directory containing edgelists use the [generateAdjacencyFile.sh](generateAdjacencyFile.sh) bash script:
 ```bash
 generateAdjacencyFile.sh [-v] directory outputfile
 ```
 
 # Finding the neighbours of a group of egos
-Once you have an adjacency file in place you can use the [getNeighbours.py]() python script to build a list of neighbours. Its usage is as follows:
+Once you have an adjacency file in place you can use the [getNeighbours.py](getNeighbours.py) python script to build a list of neighbours. Its usage is as follows:
 ```bash
 getNeighbours.py [-h] [-v] [--limit limit overflow_file]
     egofilename adjacencyfilename outputfilename
@@ -85,7 +85,7 @@ You may (for whatever reason) want to ignore egos that have massive numbers of n
 In order to produce only neighbours that are not massively connected you can pass a limit and an overflow file name to ignore all seed egos that have more than the `limit` of neighbours. The output file will not contain these neighbours and the overflow file will contain the egos that had more than `limit` neighbours.
 
 # Producing a subset of an edgelist based on a collection of seed egos
-Once you have a list of egos and want to build an edgelist based on who these egos connected to you can use the [getEdgelists.sh]() script (which uses the [getEdgelist.py]() python script) Its usage is as follows:
+Once you have a list of egos and want to build an edgelist based on who these egos connected to you can use the [getEdgelists.sh](getEdgelists.sh) script (which uses the [getEdgelist.py](getEdgelist.py) python script) Its usage is as follows:
 ```bash
 getEdgelists.sh [-v] seedlist edgelistdirectory outputfile
 ```
