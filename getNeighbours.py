@@ -50,7 +50,7 @@ nextSeed = heapq.heappop(seeds)
 seed_neighbours = Set()
 printIfVerbose("Starting with seed {}".format(nextSeed))
 # Now sequentially get the neighbours  
-with open(args.neighbourfilename, 'r') as csvfile:
+with open(args.adjacencyfilename, 'r') as csvfile:
   reader = csv.reader(csvfile)
   for row in reader:
     ego = row[0]
